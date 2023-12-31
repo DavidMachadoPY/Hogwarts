@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Hogwarts_files/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Hogwarts</title>
+    <link rel="stylesheet" type="text/css" href="Hogwarts_files/styles.css">
+</head>
+
+<body>
+    <div class="main">
+        <header class="header1">
+            HOLA BEUNOS DIAS
+        </header>
+        <div class="contentInicio">
+            <nav class="nav2">
+                HOLAAA
+            </nav>
+
+            <!-- Botón Reproducir -->
+            <button id="btn watch-video-btn">
+                <img src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/play-button-shadow.png" alt="" class="shadows">
+                <img src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/play-button-outer.png" alt="" class="outer">
+                <img src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/play-button-lip.png" alt="" class="lip">
+                <img src="https://cdn-hogwartslegacy.warnerbrosgames.com/static/play-button-arrow.png" alt="" class="arrow">
+            </button>
+
+            <!-- Contenedor para la ventana emergente -->
+            <div id="videoModal" class="modal">
+                <!-- Contenido de la ventana emergente -->
+                <div class="modal-content">
+                    <!-- Botón para cerrar la ventana emergente -->
+                    <span class="close" id="closeButton">&times;</span>
+                    <!-- Reproductor de video HTML5 -->
+                    <video id="localVideo" controls width="560">
+                        <source src="img/video.mp4" type="video/mp4">
+                        Tu navegador no soporta el tag de video.
+                    </video>
+                </div>
+            </div>
+
+            <form class="form" onsubmit="return infoUser();">
+                <div class="content-form">
+                    <label for="nombre" class="label">Nombre:</label>
+                    <input type="text" id="nombre" required="" class="input">
+                    <label for="apellido" class="label" id="apellido" >Apellido:</label>
+                    <input type="text" id="apellido" required="" class="input">
+                    <label for="edad" class="label">Edad:</label>
+                    <input type="number" id="edad" required="" class="input">
+                </div>
+            </form>
+            <section id="paso1">
+               <p class="msj-bienvenida"> <img src="img/line.png" alt="line" id ="line">Bienvenido a Hogwarts <img src="img/line.png" alt="line" id ="line"></p>
+                <p class="sentence">El Sombrero Seleccionador revelará a qué casa perteneces.</p>
+                <button type="button" class="btn_inicio" onclick="infoUser()">Inicio</button>
+            </section>
+        </div>
+        <div class="contentFormulario">
+            <section id="paso2" class="oculto">
+                <h3 for="linaje">Linaje:</h3>
+                <select id="linaje">
+                    <option value="Sangre Pura" selected="selected">Sangre Pura</option>
+                    <option value="Mestizo">Mestizo</option>
+                    <option value="Muggle">Muggle</option>
+                </select>
+                <h3>Selecciona sus cualidades:</h3>
+                <label for="cualidades">Cualidades:</label>
+                <select id="cualidades">
+                    <option value="gryffindor" selected="selected">Valor, Fuerza, Audacia</option>
+                    <option value="hufflepuff">Justicia, Lealtad, Paciencia</option>
+                    <option value="ravenclaw">Creatividad, Erudición, Inteligencia</option>
+                    <option value="slytherin">Ambición, Determinación, Astucia</option>
+                </select>
+                <button type="button" onclick="seleccionarCasa()">¡Descubre tu casa!</button>
+                <button type="button" onclick="regresarPaso1()">Regresar</button>
+            </section>
+            <section id="paso3" class="oculto">
+                <h2>Paso 2: ¡Rumores Oscuros!</h2>
+                <p>Corren rumores de que el innombrable ha vuelto y Harry Potter está en Hogwarts.</p>
+                <button type="button" onclick="regresarPaso2()">Regresar</button>
+            </section>
+        </div>
+       
+        <p id="resultado"></p>
+    </div>
+</body>
+
+</html>
