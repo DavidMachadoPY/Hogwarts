@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Domine&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Playfair+Display&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@900&display=swap');
 html, body {
-  height: 850vh;
+  height: 100vh;
   width: 100%;
   padding: 0px;
   margin: 0px;
@@ -69,6 +69,7 @@ html, body {
                   url(../img/wallpaper.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
   padding-bottom: 100px;
   display: flex;
   flex-direction: column;
@@ -671,346 +672,128 @@ form{
     height: 245px;
   }
 
-  #cardClases {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    transition: 700ms;
-    background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
-  }
+.containerCard {
+  width: 33%;
+  max-width: 1200px;
+  padding: 30px;
+}
 
-  #prompt {
-    bottom: 8px;
-    left: 12px;
-    z-index: 20;
-    font-size: 20px;
-    font-weight: bold;
-    transition: 300ms ease-in-out-out;
-    position: absolute;
-    max-width: 110px;
-    color: rgb(255, 255, 255);
-  }
+.game-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 110%;
+  perspective: 5000px;
+}
 
-  .tracker {
-    position: absolute;
-    z-index: 200;
-    width: 100%;
-    height: 100%;
-  }
+.game-card__cover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-size: cover;
+  background-position: center center;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  will-change: transform;
+  transform: skewX(0.001deg);
+  border-radius: 15px;
+  transition: transform 0.35s ease-in-out;
+}
 
-  .tracker:hover {
-    cursor: pointer;
-  }
-
-  .tracker:hover ~ #cardClases #prompt {
-    opacity: 0;
-  }
-
-  .tracker:hover ~ #cardClases {
-    transition: 300ms;
-    filter: brightness(1.1);
-  }
-
-  .containerClases:hover #cardClases::before {
-    transition: 200ms;
-    content: '';
-    opacity: 80%;
-  }
-
-  .canvas {
-    perspective: 800px;
-    inset: 0;
-    z-index: 200;
-    position: absolute;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas: "tr-1 tr-2 tr-3 tr-4 tr-5"
-      "tr-6 tr-7 tr-8 tr-9 tr-10"
-      "tr-11 tr-12 tr-13 tr-14 tr-15"
-      "tr-16 tr-17 tr-18 tr-19 tr-20"
-      "tr-21 tr-22 tr-23 tr-24 tr-25";
-  }
-
-  #cardClases::before {
-    content: '';
-    background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
-    filter: blur(2rem);
-    opacity: 30%;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    transition: 200ms;
-  }
-
-  .tr-1 {
-    grid-area: tr-1;
-  }
-
-  .tr-2 {
-    grid-area: tr-2;
-  }
-
-  .tr-3 {
-    grid-area: tr-3;
-  }
-
-  .tr-4 {
-    grid-area: tr-4;
-  }
-
-  .tr-5 {
-    grid-area: tr-5;
-  }
-
-  .tr-6 {
-    grid-area: tr-6;
-  }
-
-  .tr-7 {
-    grid-area: tr-7;
-  }
-
-  .tr-8 {
-    grid-area: tr-8;
-  }
-
-  .tr-9 {
-    grid-area: tr-9;
-  }
-
-  .tr-10 {
-    grid-area: tr-10;
-  }
-
-  .tr-11 {
-    grid-area: tr-11;
-  }
-
-  .tr-12 {
-    grid-area: tr-12;
-  }
-
-  .tr-13 {
-    grid-area: tr-13;
-  }
-
-  .tr-14 {
-    grid-area: tr-14;
-  }
-
-  .tr-15 {
-    grid-area: tr-15;
-  }
-
-  .tr-16 {
-    grid-area: tr-16;
-  }
-
-  .tr-17 {
-    grid-area: tr-17;
-  }
-
-  .tr-18 {
-    grid-area: tr-18;
-  }
-
-  .tr-19 {
-    grid-area: tr-19;
-  }
-
-  .tr-20 {
-    grid-area: tr-20;
-  }
-
-  .tr-21 {
-    grid-area: tr-21;
-  }
-
-  .tr-22 {
-    grid-area: tr-22;
-  }
-
-  .tr-23 {
-    grid-area: tr-23;
-  }
-
-  .tr-24 {
-    grid-area: tr-24;
-  }
-
-  .tr-25 {
-    grid-area: tr-25;
-  }
-
-  .tr-1:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg);
-  }
-
-  .tr-2:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
-  }
-
-  .tr-3:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
-  }
-
-  .tr-4:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
-  }
-
-  .tr-5:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
-  }
-
-  .tr-6:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
-  }
-
-  .tr-7:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
-  }
-
-  .tr-8:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
-  }
-
-  .tr-9:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
-  }
-
-  .tr-10:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
-  }
-
-  .tr-11:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
-  }
-
-  .tr-12:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
-  }
-
-  .tr-13:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  }
-
-  .tr-14:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
-  }
-
-  .tr-15:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
-  }
-
-  .tr-16:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
-  }
-
-  .tr-17:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
-  }
-
-  .tr-18:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
-  }
-
-  .tr-19:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
-  }
-
-  .tr-20:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
-  }
-
-  .tr-21:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
-  }
-
-  .tr-22:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
-  }
-
-  .tr-23:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
-  }
-
-  .tr-24:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
-  }
-
-  .tr-25:hover ~ #cardClases {
-    transition: 125ms ease-in-out;
-    transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
-  }
-
-  .noselect {
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Old versions of Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently
-                    supported by Chrome, Edge, Opera and Firefox */
-  }
+.game-card__cover::after {
+  display: block;
+  content: '';
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    226deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.4) 35%,
+    rgba(255, 255, 255, 0.2) 42%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: translateY(-40%);
+  will-change: transform;
+  transition: transform 0.65s cubic-bezier(0.50, 1, 1, 1);
+}
+.game-card:hover .game-card__cover {
+  transform: rotateX(7deg) translateY(-6px);
+}
+.game-card:hover .game-card__cover::after {
+  transform: translateY(0%);
+}
+.game-card::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 60%;
+  height: 60%;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.4);
+  will-change: opacity;
+  transform-origin: top center;
+  transform: skewX(0.001deg);
+  transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
+}
+.game-card:hover::before {
+  opacity: 0.6;
+  transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
 
 .content__class {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  margin: 40px;
+  border-top: 3px aqua solid;
+  background: linear-gradient(rgb(15, 54, 52), #000000);
+  padding: 60px;
 }
 
 .class__info {
-  width: 60%;
+  width: 65%;
+  line-height: 30px;
   text-align: center;
 }
 
   .nameMateria {
     font-size: 45px;
+    color: #e7cc2f;
+    text-shadow: 0 0 25px #e7cc2f;
     margin: 0;
   }
 
   .nameTeacher {
     font-size: 16px;
+    color: aqua;
+    margin: 10px;
   }
 
   .info__Class {
     margin: 40px 40px;
+    color: white;
   }
+
+
+.containClass_selec {
+  display: flex;
+  justify-content: center;
+}
+
+.form-check-label {
+  font-size: 20px;
+  color: white;
+
+}
